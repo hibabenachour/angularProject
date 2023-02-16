@@ -1,0 +1,44 @@
+<section style="margin-top: 100px; " class="regervation_part section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="section_tittle">
+
+                    <h2>{{title}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="regervation_part_iner">
+                    <form #addAdminForm="ngForm" (ngSubmit)="saveUser()">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="First Name" [(ngModel)]="user.firstName" [ngModelOptions]="{standalone:true}">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="Last Name" [(ngModel)]="user.lastName" [ngModelOptions]="{standalone:true}">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="email" class="form-control" id="inputPassword4" placeholder="Email address *" [(ngModel)]="user.email" [ngModelOptions]="{standalone:true}">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <input type="password" class="form-control" id="pwd" placeholder="¨Password *" [(ngModel)]="user.password" [ngModelOptions]="{standalone:true}">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="tel" class="form-control" id="pnone" placeholder="Phone number *" [(ngModel)]="user.tel" [ngModelOptions]="{standalone:true}">
+                            </div>
+
+                        </div>
+
+                        <div class="regerv_btn">
+                            <button class="btn_4">{{title}}</button>
+                            <!-- <a href="#" class="btn_4">Book A Table</a> -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

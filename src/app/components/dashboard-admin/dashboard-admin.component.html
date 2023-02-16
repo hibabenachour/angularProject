@@ -1,0 +1,106 @@
+<section style="margin-top: 100px; " class="regervation_part section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="section_tittle">
+
+                    <h2>Dashboard Admin</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="regervation_part_iner">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active" id="nav-home-tab" data-toggle="tab" data-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
+                            <button class="nav-link" id="nav-profile-tab" data-toggle="tab" data-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Plat</button>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                            <button type="button " class="btn btn-primary  " (click)="getPdf()">Download PDF</button>
+                            <button type="button " class="btn btn-primary" (click)=" saveDataInCSV( 'simpleData') ">Download CSV</button>
+                            <table class="table table-dark ">
+                                <thead>
+                                    <tr>
+                                        <th scope="col ">First Name</th>
+                                        <th scope="col ">Last Name</th>
+                                        <th scope="col ">Email</th>
+                                        <th scope="col ">Tel</th>
+                                        <th scope="col ">Role</th>
+                                        <th scope="col ">Speciality</th>
+                                        <th scope="col ">Experience</th>
+                                        <th scope="col ">Date of birth</th>
+                                        <th scope="col ">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let u of users ">
+
+                                        <!-- <td>{{u.firstName |reverse}}</td> -->
+                                        <td>{{u.firstName }}</td>
+                                        <td>{{u.lastName |replacespace}}</td>
+                                        <td>{{u.email}}</td>
+                                        <td>{{u.tel}}</td>
+                                        <td>{{u.role}}</td>
+                                        <td [ngClass]="{ 'red' : u.speciality=='TN' , 'blue' : u.speciality=='FR' , 'green' : u.speciality=='IT' } ">{{u.speciality}}</td>
+                                        <!-- <td [ngStyle]="{ 'color' : getColor(u.speciality)} ">{{u.speciality}}</td> -->
+                                        <td>{{u.experience}}</td>
+                                        <td>{{u.dateOfBirth | date}}</td>
+                                        <td>
+                                            <button type="button " class="btn btn-primary " (click)="displayUser(u._id) ">Display</button>
+                                            <button type="button " class="btn btn-warning " (click)="editUser(u._id,u.role) ">Edit</button>
+                                            <button type="button " class="btn btn-danger " (click)="deleteUser(u._id) ">Delete</button>
+
+
+                                        </td>
+
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade " id="nav-profile " role="tabpanel " aria-labelledby="nav-profile-tab ">
+
+                            <table class="table table-dark ">
+                                <thead>
+                                    <tr>
+                                        <th scope="col ">PlatName</th>
+                                        <th scope="col ">Price</th>
+                                        <th scope="col ">Description</th>
+                                        <th scope="col ">Chef</th>
+
+                                        <th scope="col ">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let p of plats ">
+
+                                        <td>{{p.platName}}</td>
+                                        <td>{{p.price}}</td>
+                                        <td>{{p.description}}</td>
+                                        <ng-container *ngFor="let u of users ">
+                                            <td *ngIf="u._id==p .idChef ">{{u.firstName}} {{u.lastName}}</td>
+                                        </ng-container>
+
+                                        <td>
+                                            <button type="button " class="btn btn-warning ">Edit</button>
+                                            <button type="button " class="btn btn-danger ">Delete</button>
+                                        </td>
+
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

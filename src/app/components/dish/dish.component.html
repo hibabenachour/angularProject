@@ -1,0 +1,16 @@
+<div class="single_blog_item">
+    <div class="single_blog_img">
+        <img src="assets/img/food_item/food_item_1.png" alt="">
+    </div>
+    <div class="single_blog_text">
+        <h3>{{childDish.platName}}</h3>
+        <p>{{childDish.price}} </p>
+        <p>{{childDish.description}} </p>
+        <!-- <ng-container *ngFor = "let u of users">
+            <h3 *ngIf = "u.id == childDish.idChef">By chef : {{u.firstName}} {{u.lastName}}</h3>
+        </ng-container> -->
+        <p> by {{childDish.idChef}} </p>
+        <button (click)="deletePlat(childDish._id)" class="btn btn-danger ">Delete</button>
+        <!-- <a href="#" class="btn_3">Read More <img src="assets/img/icon/left_2.svg" alt=""></a> -->
+    </div>
+</div>

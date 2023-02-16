@@ -1,0 +1,47 @@
+<section style="margin-top: 100px; " class="regervation_part section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="section_tittle">
+
+                    <h2>{{title}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="regervation_part_iner">
+                    <form #addPlatForm="ngForm" (ngSubmit)="savePlat()">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="plat Name" [(ngModel)]="plat.platName" [ngModelOptions]="{standalone:true}">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="price" [(ngModel)]="plat.price" [ngModelOptions]="{standalone:true}">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <textarea class="form-control" id="inputPassword4" cols="60" rows="30" placeholder="description" [(ngModel)]="plat.description" [ngModelOptions]="{standalone:true}"></textarea>
+                                <!-- <input type="text" class="form-control" id="inputPassword4" placeholder="description" [(ngModel)]="plat.description" [ngModelOptions]="{standalone:true}"> -->
+                            </div>
+                            <div class="form-group col-md-6">
+                                <button type="button" (click)='filePicker.click()' class="btn btn-primary py-3 px-5">Select plat image</button>
+                                <div class="form-group">
+                                    <input style="visibility: hidden;" type="file" class="form-control" #filePicker (change)='onImageSelected($event)' />
+                                </div>
+                                <img [src]="imagePreview" *ngIf="imagePreview" width="300px" height="300px">
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="regerv_btn">
+                            <button class="btn_4">{{title}}</button>
+                            <!-- <a href="#" class="btn_4">Book A Table</a> -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
